@@ -25,12 +25,14 @@ btnRoll.addEventListener('click', function() {
     // Display Dice
     diceEl.classList.remove('hidden')
     diceEl.src = `dice-${dice}.png`
-    // Check for rolled 1: if true, switch to the next player
+    // Check for rolled 1: if true
     if(dice !== 1){
         currentScore += dice
         document.getElementById(`current--${activePlayer}`).textContent = currentScore
-        current0El.textContent = currentScore
     } else {
-
+        //switch to the next player
+        document.getElementById(`current--${activePlayer}`).textContent = 0
+        activePlayer = activePlayer === 0 ? 1 : 0
+        currentScore = 0
     }
 })
